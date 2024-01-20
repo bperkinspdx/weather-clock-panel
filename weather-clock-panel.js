@@ -1,4 +1,4 @@
-class SimpleWeatherClock extends HTMLElement {
+class WeatherClockPanel extends HTMLElement {
   set hass(hass) {
     if (!this.cDiv) {
       const styles = `
@@ -258,11 +258,11 @@ class SimpleWeatherClock extends HTMLElement {
   }
 }
 
-customElements.define('simple-weather-clock', SimpleWeatherClock);
+customElements.define('weather-clock-panel', WeatherClockPanel);
 window.customCards = window.customCards || [];
 window.customCards.push({
-  type: "simple-weather-clock",
-  name: "Simple Weather Clock",
-  description: "Displays a simple weather clock with six slots below it for environmental sensors."
+  type: "weather-clock-panel",
+  name: "Weather Clock Panel",
+  description: "Displays weather, clock etc..."
 });
 

@@ -1,9 +1,7 @@
 [![hacs_badge](https://img.shields.io/badge/HACS-Default-41BDF5.svg?style=for-the-badge)](https://github.com/hacs/integration)
 
-# Simple Weather Clock
-A card for Home Assistant designed to display a digital clock with six slots below for various numeric environmental sensor data.  This card is meant to be used on a dashboard configured as a panel.
-
-![Screenshot](screenshot.png)
+# Weather Clock Panel
+Fork of Simple Weather Clock
 
 **Installation**  
 You should install this card using [HACS](https://hacs.xyz).
@@ -12,7 +10,7 @@ You should install this card using [HACS](https://hacs.xyz).
 
 | Name | Type | Default | Description
 | ---- | ---- | ------- | -----------
-| type | string | **Required** | `custom:simple-weather-clock`
+| type | string | **Required** | `custom:weather-clock-panel`
 | clock | string | **Required** | sensor with the time
 | topleft | string |  | sensor to show in top left slot
 | topcenter | string |  | sensor to show in top center slot
@@ -52,7 +50,7 @@ If you change the display width and height, you'll want to adjust the font sizes
 **Example**
 
 ```yaml
-- type: custom:simple-weather-clock
+- type: custom:weather-clock-panel
   clock: sensor.normaltime
   topleft: sensor.temp_outdoor
   bottomleft: sensor.humidity_outdoor
@@ -60,40 +58,4 @@ If you change the display width and height, you'll want to adjust the font sizes
   bottomcenter: sensor.openweathermap_forecast_temperature_low
   topright: sensor.temp_livingroom
   bottomright: sensor.humidity_livingroom
-```
-
-**Advaned Example**  
-You can use something like the [config-template-card](https://github.com/iantrich/config-template-card) to have one clock card for multiple clocks showing slightly different information.
-
-```yaml
-type: custom:config-template-card
-variables:
-  currentUser: user.name
-  whichSensor: |
-    theuser => {
-      if (theuser == 'Bedroom Clock') {
-        return ['sensor.temp_bedroom', 'sensor.humidity_bedroom']
-      }
-      else if (theuser == 'Study Clock') {
-        return ['sensor.temp_study', 'sensor.humidity_study']
-      }
-      return ['sensor.temp_livingroom', 'sensor.humidity_livingroom']
-    }
-entities:
-  - sensor.normaltime
-  - sensor.temp_outdoor
-  - sensor.humidity_outdoor
-  - sensor.openweathermap_forecast_temperature
-  - sensor.openweathermap_forecast_temperature_low
-  - ${ whichSensor(currentUser)[0] }
-  - ${ whichSensor(currentUser)[1] }
-card:
-  type: custom:simple-weather-clock
-  clock: sensor.normaltime
-  topleft: sensor.temp_outdoor
-  bottomleft: sensor.humidity_outdoor
-  topcenter: sensor.openweathermap_forecast_temperature
-  bottomcenter: sensor.openweathermap_forecast_temperature_low
-  topright: ${ whichSensor(currentUser)[0] }
-  bottomright: ${whichSensor(currentUser)[1] }
 ```
