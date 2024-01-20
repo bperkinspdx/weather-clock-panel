@@ -206,7 +206,7 @@ class WeatherClockPanel extends HTMLElement {
 
     const dcfs = 260;
     const difs = 85;
-    const cp = 100;
+    const cp = 15;
     const ip = 15;
     const ibmt = -20;
     var eba = 0;
