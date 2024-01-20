@@ -244,7 +244,7 @@ class WeatherClockPanel extends HTMLElement {
     }
     if (!cardConfig.infofontsize) {
       cardConfig.infofontsize = difs;
-      cardConfig.infoadjust = 0;
+      cardConfig.infoadjust = -100;
     } else {
       cardConfig.infoadjust = Math.round((cardConfig.infofontsize - difs) / 2.0);
       eba = cardConfig.infofontsize - difs;
