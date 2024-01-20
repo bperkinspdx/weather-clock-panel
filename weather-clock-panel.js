@@ -36,7 +36,7 @@ class WeatherClockPanel extends HTMLElement {
           align-self: baseline;
           color: ${this.config.clockcolor};
           font-size: ${this.config.clockfontsize}px;
-          height: 160px;
+          height: ${this.config.clockheight}px;
           padding-top: ${this.config.clockpadding}px;
         }
         
@@ -228,6 +228,7 @@ class WeatherClockPanel extends HTMLElement {
     if (!cardConfig.displayheight) cardConfig.displayheight = 480;
     if (!cardConfig.offset) cardConfig.offset = 0;
     if (!cardConfig.clockspacing) cardConfig.clockspacing = 0;
+    if (!cardConfig.clockheight) cardConfig.clockheight = 160;
     if (!cardConfig.infospacing) cardConfig.infospacing = 0;
     if (!cardConfig.infoedge) {
       cardConfig.infopadding = ip;
