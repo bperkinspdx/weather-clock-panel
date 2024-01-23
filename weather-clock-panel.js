@@ -242,7 +242,7 @@ class WeatherClockPanel extends HTMLElement {
       const ca = Math.round((cardConfig.clockfontsize - dcfs) / 3.0)
       cardConfig.clockpadding = cp + ca
     }
-    if (1=1) {
+    if (1==1) {
       cardConfig.infofontsize = difs;
       cardConfig.infoadjust = -100;
     } else {
