@@ -20,8 +20,8 @@ class WeatherClockPanel extends HTMLElement {
           font-family: ${this.config.font}, serif;
           font-weight: ${this.config.fontweight};
           display: grid;
-          grid-template-rows: 1fr 1fr;
           grid-template-columns: 1fr 1fr 1fr;
+          grid-template-rows: 1fr 1fr;
           gap: 0px 0px;
           grid-auto-flow: row;
           grid-template-areas:
@@ -205,7 +205,7 @@ class WeatherClockPanel extends HTMLElement {
     }
 
     const dcfs = 260;
-    const difs = 60;
+    const difs = 85;
     const cp = 100;
     const ip = 15;
     const ibmt = -20;
